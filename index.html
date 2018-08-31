@@ -5,59 +5,18 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Dollar game</title>
 	<script src="app.js" type="text/javascript" async></script>
-	<style type="text/css">
-		* { padding: 0; margin: 0; }
-		html, body { width: 100%; height: 100%; box-sizing: border-box; font: 12px Helvetica, Arial, sans-serif; }
-		body { padding: 10px; }
-
-		.controls {
-			display: flex;
-			width: 100%;
-			margin: 10px 0;
-		}
-
-		#start {
-			-webkit-appearance: none;
-			-moz-appearance: none;
-			appearance: none;
-			font: 12px Helvetica, Arial, sans-serif;
-			padding: 2px 15px;
-			margin-right: 40px;
-			background-color: transparent;
-			cursor: pointer;
-		}
-
-		.settings {
-			display: flex;
-			flex-direction: column;
-		}
-
-		.control {
-			display: flex;
-			margin-bottom: 5px;
-		}
-
-		.control label {
-			min-width: 50px;
-			margin-right: 20px;
-		}
-
-		.control input {
-			width: 50px;
-		}
-
-		canvas {
-			cursor: pointer;
-		}
-	</style>
+	<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-	<div class="controls">
-		<input type="button" value="Start over" id="start" />
-		<div class="settings">
-			<div class="control"><label for="nodeCount">Nodes</label> <input id="nodeCount" type="number" min="2" max="100" value="8" /></div>
-			<div class="control"><label for="edgeCount">Edges</label> <input id="edgeCount" type="number" min="1" max="101" value="12" /></div>
+	<div class="header">
+		<div class="controls">
+			<input type="button" value="Start over" id="start" />
+			<div class="settings">
+				<div class="control"><label for="nodeCount">Nodes</label> <input id="nodeCount" type="number" min="2" max="100" value="8" /></div>
+				<div class="control"><label for="edgeCount">Edges</label> <input id="edgeCount" type="number" min="1" max="101" value="12" /></div>
+			</div>
 		</div>
+		<div class="disclaimer"><a href="https://github.com/thisancog/DollarGame/" target="_blank" rel="noopener">View on Github</a></div>
 	</div>
 	<canvas id="canvas" width="900" height="600"></canvas>
 </body>

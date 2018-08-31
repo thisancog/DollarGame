@@ -1,0 +1,76 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	font: 12px Helvetica, Arial, sans-serif;
+}
+
+body {
+	padding: 10px;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	width: 100%;
+	margin: 10px 0;
+}
+
+.controls {
+	display: flex;
+}
+
+#start {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	font: 12px Helvetica, Arial, sans-serif;
+	padding: 2px 15px;
+	margin-right: 40px;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.settings {
+	display: flex;
+	flex-direction: column;
+}
+
+.control {
+	display: flex;
+	margin-bottom: 5px;
+}
+
+label {
+	min-width: 50px;
+	margin-right: 20px;
+}
+
+.control input {
+	width: 50px;
+}
+
+a, a:visited, a:active {
+	color: #000;
+	text-decoration: none;
+	border-bottom: 1px solid currentColor;
+
+	-webkit-transition: color 0.3s ease;
+	   -moz-transition: color 0.3s ease;
+	     -o-transition: color 0.3s ease;
+			transition: color 0.3s ease;
+}
+
+a:hover {
+	color: #999;
+}
+
+canvas {
+	cursor: pointer;
+}
