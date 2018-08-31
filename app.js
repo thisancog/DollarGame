@@ -17,10 +17,12 @@
 		startButton = document.querySelector('#start'),
 		nodeCount = document.querySelector('#nodeCount'),
 		edgeCount = document.querySelector('#edgeCount'),
+		movesCounter = document.querySelector('.moves span'),
 		nodes = [],
 		nodeClicked = false,
 		nodeDragged = false,
-		solved = false;
+		solved = false,
+		moves = 0;
 
 	class Node {
 		constructor(value = 0, index = 0, x, y) {
@@ -111,7 +113,6 @@
 			});
 		}
 
-
 		// Add nodes
 		nodes = Array(parseInt(n)).fill(null).map((_, i) => new Node(values[i], i));
 
@@ -124,8 +125,10 @@
 			var a = Math.floor(Math.random() * nodes.length),
 				b = a;
 
-			while (a === b || nodes[a].edges.indexOf(b) > -1)
+			while (a === b || nodes[a].edges.indexOf(b) > -1) {
+				a = Math.floor(Math.random() * nodes.length);
 				b = Math.floor(Math.random() * nodes.length);
+			}
 			nodes[a].addEdge(b);
 		}
 	
@@ -143,13 +146,16 @@
 
 
 	var checkScore = function() {
+		moves++;
+		movesCounter.innerText = moves;
+
 		if (nodes.filter(node => node.value < 0).length === 0) {
 			ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
 			ctx.fillRect(0, 0, canvas.width, canvas.height);
 			ctx.fillStyle = '#000';
 
-			ctx.font = (settings.fontSize * 10) + 'px Helvetica';
-			ctx.fillText('Game solved!', 0.5 * canvas.width, 0.5 * canvas.height);
+			ctx.font = (settings.fontSize * 3) + 'px Helvetica';
+			ctx.fillText('Game solved in ' + moves + ' moves!', 0.5 * canvas.width, 0.5 * canvas.height);
 
 			solved = true;
 		}
@@ -205,7 +211,7 @@
 		let n = parseInt(nodeCount.value),
 			e = parseInt(edgeCount.value),
 			min = parseInt(edgeCount.min);
-			max = Array(n).fill(null).map((_, i) => i + 1).reduce((acc, val) => acc * val, 1) - 1;
+			max = 0.5 * n * (n - 1);
 
 		max = Math.min(1000, max);
 
