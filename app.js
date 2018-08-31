@@ -19,10 +19,7 @@
 		edgeCount = document.querySelector('#edgeCount'),
 		movesCounter = document.querySelector('.moves span'),
 		nodes = [],
-		nodeClicked = false,
-		nodeDragged = false,
-		solved = false,
-		moves = 0;
+		nodeClicked, nodeDragged, solved, moves;
 
 	class Node {
 		constructor(value = 0, index = 0, x, y) {
@@ -91,6 +88,9 @@
 
 	var setupGame = function() {
 		solved = false;
+		nodeClicked = false;
+		nodeDragged = false;
+		moves = 0;
 
 		ctx.font = settings.fontSize + 'px Helvetica';
 		ctx.textAlign = 'center';
@@ -257,7 +257,7 @@
 
 
 	var init = function() {
-		console.log('v1.1');
+		console.log('v1.11');
 		ctx.webkitImageSmoothingEnabled = true;
 
 		resizeBoard();
