@@ -5,7 +5,7 @@ A very simple example of the Dollar Game as seen on the [Numberphile YouTube cha
 You can play it online [here](https://thisancog.github.io/DollarGame/).
 
 ### Objectives
-Distribute the numbers from the nodes to their connected nodes by clicking them in order to eliminate all negative values. Each click will add 1 to each connected node while subtracting the total of the node itself.
+Distribute the numbers from the nodes to their connected nodes by clicking them in order to eliminate all negative values. Each click will add 1 to each connected node while subtracting the total of the node itself. You can move nodes around by dragging them.
 
 ### Notes
 
