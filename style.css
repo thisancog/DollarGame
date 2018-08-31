@@ -56,6 +56,15 @@ label {
 	width: 50px;
 }
 
+.moves {
+	margin: 0 0 0 20px;
+	font-size: 1.4em;
+}
+
+.moves span {
+	font-weight: bold;
+}
+
 a, a:visited, a:active {
 	color: #000;
 	text-decoration: none;
