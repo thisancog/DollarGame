@@ -99,16 +99,25 @@
 		var n = parseInt(nodeCount.value),
 			e = parseInt(edgeCount.value),
 			g = n + e + 1,
-			d = Math.round(Math.random() * 0.3 * g) + g;
+			d = Math.round(Math.random() * 0.1 * g) + g;
 
 		// Generate values
-		var remainder = d,
-			values = Array(n).fill(0);
+		var values = Array(n).fill(0);
 
-		while (values.reduce((acc, val) => acc + val) < g && values.filter(n < 0).length === 0) {
+		while (values.reduce((acc, val) => acc + val) < g || values.filter(n => n < 0).length === 0) {
+			var remainder = d;
+
 			values = Array(n).fill(null).map((_, i) => {
-				var val = Math.round((Math.random()) * n) * (Math.sign(Math.random() - 0.5));
-				remainder += val;
+				var size = n,
+					val = - Math.round((Math.random()) * size);
+
+				if (i > 0 && i < n - 1) {
+					val = val * (Math.sign(Math.random() - 0.5));	
+				} else {
+					val = remainder;
+				}
+				
+				remainder -= val;
 				return val;
 			});
 		}
@@ -213,6 +222,7 @@
 			min = parseInt(edgeCount.min);
 			max = 0.5 * n * (n - 1);
 
+		min = n - 1;
 		max = Math.min(1000, max);
 
 		if (min > n) n = min;
