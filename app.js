@@ -91,6 +91,7 @@
 		nodeClicked = false;
 		nodeDragged = false;
 		moves = 0;
+		movesCounter.innerText = 0;
 
 		ctx.font = settings.fontSize + 'px Helvetica';
 		ctx.textAlign = 'center';
