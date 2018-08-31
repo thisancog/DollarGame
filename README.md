@@ -6,3 +6,7 @@ You can play it online [here](https://thisancog.github.io/DollarGame/).
 
 ### Objectives
 Distribute the numbers from the nodes to their connected nodes by clicking them in order to eliminate all negative values. Each click will add 1 to each connected node while subtracting the total of the node itself.
+
+### Notes
+
+It still crashes from time to time, i.e. for a large number of nodes and/or edges. I try to fix this later.
