@@ -123,7 +123,7 @@
 		}
 
 		// Add nodes
-		nodes = Array(parseInt(n)).fill(null).map((_, i) => new Node(values[i], i));
+		nodes = Array(parseInt(n)).fill(null).map((_, i) => new Node(0, i));
 
 		// Add edges
 		for (var i = 0; i < n - 1; i++) {
@@ -140,6 +140,10 @@
 			}
 			nodes[a].addEdge(b);
 		}
+
+		var order = nodes.map((n, i) => i);
+		order.sort((a, b) => nodes[a].edges.length - nodes[b].edges.length);
+		order.forEach((n, i) => nodes[n].value = values[i]);
 	
 		render();
 	}
@@ -219,14 +223,10 @@
 	var updateSettings = function() {
 		let n = parseInt(nodeCount.value),
 			e = parseInt(edgeCount.value),
-			min = parseInt(edgeCount.min);
-			max = 0.5 * n * (n - 1);
+			min = n - 1,
+			max = Math.min(1000, 0.5 * n * (n - 1));
 
-		min = n - 1;
-		max = Math.min(1000, max);
-
-		if (min > n) n = min;
-		if (n > e) e = n;
+		if (n > e + 1) e = min;
 		if (e > max) e = max;
 
 		edgeCount.min = min;
