@@ -105,7 +105,7 @@
 		var remainder = d,
 			values = Array(n).fill(0);
 
-		while (values.reduce((acc, val) => acc + val) < g) {
+		while (values.reduce((acc, val) => acc + val) < g && values.filter(n < 0).length === 0) {
 			values = Array(n).fill(null).map((_, i) => {
 				var val = Math.round((Math.random()) * n) * (Math.sign(Math.random() - 0.5));
 				remainder += val;
