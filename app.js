@@ -257,7 +257,7 @@
 
 
 	var init = function() {
-		console.log('ver 1.1');
+		console.log('v1.1');
 		ctx.webkitImageSmoothingEnabled = true;
 
 		resizeBoard();
