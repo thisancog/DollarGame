@@ -2,7 +2,7 @@
 
 	var settings = {
 		nodeColor: '#555',
-		nodeRadius: 30,
+		nodeRadius: 40,
 		edgeColor: '#AAA',
 		edgeWidth: 10,
 		fontSize: 10,
@@ -146,7 +146,7 @@
 		order.sort((a, b) => nodes[a].edges.length - nodes[b].edges.length);
 		order.forEach((n, i) => nodes[n].value = values[i]);
 	
-		render();
+		updateBoard();
 	}
 
 	var getClickedNode = function(x, y) {
@@ -197,6 +197,7 @@
 		nodes[nodeClicked].x = e.offsetX;
 		nodes[nodeClicked].y = e.offsetY;
 		nodes[nodeClicked].limitPosition();
+		updateBoard();
 	}
 
 	var canvasMouseUp = function(e) {
@@ -214,6 +215,8 @@
 
 		nodeClicked = false;
 		nodeDragged = false;
+
+		updateBoard();
 	}
 
 
@@ -245,15 +248,13 @@
 		canvas.addEventListener('mouseup', canvasMouseUp);
 	}
 
-	var render = function() {
+	var updateBoard = function() {
 		if (solved) return;
 
 		ctx.fillStyle = settings.bgColor;
 		ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 		nodes.forEach(node => node.display());
-
-		requestAnimationFrame(render);
 	}
 
 
